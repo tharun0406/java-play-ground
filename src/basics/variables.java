@@ -1,4 +1,8 @@
-package basic;
+package basics;
+/**
+ * Variables in Java: Declaration, Initialization, and Usage
+ * Covers: primitive types, reference types, final variables, type casting, and best practices
+ */
 
 public class Variables {
     public static void main(String[] args) {
