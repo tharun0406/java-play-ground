@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/algorithms/DynamicProgramming"/>
+	<classpathentry kind="src" path="src/algorithms/Searching"/>
+	<classpathentry kind="src" path="src/algorithms/Sorting"/>
+	<classpathentry kind="src" path="src/basics"/>
+	<classpathentry kind="src" path="src/data_structures/Graphs"/>
+	<classpathentry kind="src" path="src/data_structures/LinkedLists"/>
+	<classpathentry kind="src" path="src/data_structures/Queues"/>
+	<classpathentry kind="src" path="src/data_structures/Stacks"/>
+	<classpathentry kind="src" path="src/data_structures/Trees"/>
+	<classpathentry kind="src" path="src/oop"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

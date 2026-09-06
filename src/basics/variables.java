@@ -1,59 +1,56 @@
-package basics;
+
 /**
- * Variables in Java: Declaration, Initialization, and Usage
- * Covers: primitive types, reference types, final variables, type casting, and best practices
+ * Variables are named references to values. This lesson covers primitive
+ * values, reference values, constants, scope, and safe type conversion.
  */
-
 public class Variables {
+
+    private static final double GST_RATE = 0.18;
+
     public static void main(String[] args) {
-        // ----- Variable Declarations and Initialization -----
+        // Primitive types store their actual value directly.
+        int quantity = 3;
+        long population = 1_428_600_000L; // L is required for large long literals.
+        double unitPrice = 249.99;
+        char section = 'A';
+        boolean inStock = true;
 
-        // Integer (whole number)
-        int age = 25;
-        System.out.println("Age: " + age);
+        // String and arrays are reference types: the variable holds a reference
+        // to an object. String itself is immutable; arrays are mutable.
+        String customerName = "Tharun";
+        int[] quantities = {1, 2, 3};
+        quantities[0] = quantity;
 
-        // Double (floating-point number)
-        double height = 5.9;
-        System.out.println("Height: " + height);
+        double subtotal = quantity * unitPrice;
+        double total = subtotal + (subtotal * GST_RATE);
 
-        // Character (single character)
-        char grade = 'A';
-        System.out.print("Alphabets : ");
-        for(char i = grade;i<='Z';i++){
-          System.out.print(i + " ");
-        }
-        System.out.println();
-          
-        // Boolean (true/false)
-        boolean isJavaFun = true;
-        System.out.println("Is Java fun? " + isJavaFun);
+        System.out.println("Customer: " + customerName + ", section: " + section);
+        System.out.println("Population: " + population + ", in stock: " + inStock);
+        System.out.println("Invoice total: " + total);
+        System.out.println("First quantity in mutable array: " + quantities[0]);
 
-        // String (text, not a primitive type)
-        String name = "Rajesh";
-        System.out.println("Name: " + name);
+        demonstrateCasting();
+        demonstrateScope();
+    }
 
-        // ----- Variable Reassignment -----
-        age = 26; // updating the value of age
-        System.out.println("Updated Age: " + age);
+    private static void demonstrateCasting() {
+        int itemCount = 7;
+        double widenedValue = itemCount; // Widening: no information is lost.
 
-        // ----- Final Variable (Constant) -----
-        final double PI = 3.14159;
-        System.out.println("Value of PI: " + PI);
-        // PI = 3.14; // ❌ This will cause an error because PI is final (constant)
-
-        // ----- Multiple Variables -----
-        int x = 5, y = 10, z = 15;
-        System.out.println("Sum: " + (x + y + z));
-
-        // ----- Type Casting -----
-        // Implicit Casting (smaller to larger type)
-        int intVal = 100;
-        double doubleVal = intVal;
-        System.out.println("Implicit Casting (int to double): " + doubleVal);
-
-        // Explicit Casting (larger to smaller type)
         double price = 99.99;
-        int roundedPrice = (int) price;
-        System.out.println("Explicit Casting (double to int): " + roundedPrice);
+        int truncatedPrice = (int) price; // Narrowing: explicit, drops decimals.
+        long roundedPrice = Math.round(price); // Prefer this when rounding is intended.
+
+        System.out.println("Widened int: " + widenedValue);
+        System.out.println("Truncated price: " + truncatedPrice);
+        System.out.println("Rounded price: " + roundedPrice);
+    }
+
+    private static void demonstrateScope() {
+        String message = "Method-local variables are visible only in this method.";
+        System.out.println(message);
+
+        // GST_RATE is visible here because it is a class-level constant.
+        System.out.println("GST rate: " + GST_RATE);
     }
 }
